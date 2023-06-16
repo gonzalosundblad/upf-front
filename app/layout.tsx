@@ -1,4 +1,13 @@
 import './globals.css'
+import "@fontsource/barlow-semi-condensed/100.css"; // Specify weight
+import "@fontsource/barlow-semi-condensed/200.css"; // Specify weight
+import "@fontsource/barlow-semi-condensed/300.css"; // Specify weight
+import "@fontsource/barlow-semi-condensed/400.css"; // Specify weight
+import "@fontsource/barlow-semi-condensed/500.css"; // Specify weight
+import "@fontsource/barlow-semi-condensed/600.css"; // Specify weight
+import "@fontsource/barlow-semi-condensed/700.css"; // Specify weight
+import "@fontsource/barlow-semi-condensed/800.css"; // Specify weight
+import "@fontsource/barlow-semi-condensed/900.css"; // Specify weight
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -15,7 +24,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className='font-sans'>
+          <div className='tracking-wider font-light'>
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   )
 }
