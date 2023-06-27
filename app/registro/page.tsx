@@ -15,6 +15,7 @@ export default function Home() {
     eth: '',
     password: ''
   })
+  const [categories, setCategories] = useState<any>([])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,6 +28,7 @@ export default function Home() {
         const data = await response.json();
         // Handle the response data
         console.log('dataaa',data);
+        setCategories(data[0])
       } catch (error) {
         // Handle any errors that occurred during the request
 
@@ -35,7 +37,6 @@ export default function Home() {
     };
 
     fetchData();
-    console.log('ola')
   }, []);
 
   const hitAPI = async() => {
@@ -72,7 +73,7 @@ export default function Home() {
       [e.target.name]: e.target.value, // overwrite 'name' with new value
     });
   };
-console.log('userdata', userData)
+
   return (
     // <main className="flex min-h-screen flex-col items-center justify-between bg-no-repeat bg-cart bg-[bottom_left_30rem] bg-[length:1100px_1500px]">
     <main className="flex min-h-screen flex-col items-center justify-between">
@@ -90,11 +91,12 @@ console.log('userdata', userData)
                 <input onChange={handleInputChange} name='name' className='p-1.5 rounded bg-gray-600 placeholder:font-light text-white' placeholder='Ingrese su nombre' type="text" /> 
                 <input onChange={handleInputChange} name='email' className='p-1.5 rounded bg-gray-600 placeholder:font-light text-white' placeholder='Ingrese su email' type="text" />
                 <select onChange={handleInputChange} className='p-1.5 rounded bg-gray-600 placeholder:font-light text-white' name="type" id="">
-                  <option value="text-white text-opacity-10">Tipo de usuario...</option>
-                  <option value="1">Enterprise</option>
-                  <option value="2">Individuo</option>
-                  <option value="3">Ingles</option>
-                  <option value="4">español</option>
+                  <option value='0'>Tipo de usuario...</option>
+                  {
+                    categories && categories.length && categories.map((c: any, i: number) => (
+                      <option key={c.id} value={c.id}>{c.user_category}</option>
+                    ))
+                  }
                 </select>
                 <input onChange={handleInputChange} name='eth' className='p-1.5 rounded bg-gray-600 placeholder:font-light text-white' placeholder='Ingrese su direccion ETH' type="text" />
                 <input onChange={handleInputChange} name='password' className='p-1.5 rounded bg-gray-600 placeholder:font-light text-white' placeholder='Ingrese su contraseña' type="text" />
