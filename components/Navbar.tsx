@@ -4,8 +4,7 @@ import { useRouter } from "next/navigation"
 const Navbar = () => {
     const router = useRouter()
     return (
-        <div className='flex items-center justify-between px-4 w-full h-16 z-10 bg-sky-950 bg-opacity-60'>
-        {/* // <div className='flex items-center px-4 w-full h-16 z-10'> */}
+        <div className='flex items-center justify-between px-4 w-full h-16 z-10 bg-[#1E1E1E] bg-opacity-100'>
           <div onClick={() => router.push('/')} className='flex w-fit mx-2 w-full'>
             <Image
               src="/upfc-logo.png"
