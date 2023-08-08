@@ -13,6 +13,11 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        'upfc-lime' : '#2BFF00',
+        'upfc-blue': '#262432',
+        'upfc-gray': '#5a5863'
+      }
     },
     fontFamily: {
       sans: ['Barlow Semi Condensed', 'Helvetica', 'Arial', 'sans-serif'],
